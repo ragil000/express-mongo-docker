@@ -26,7 +26,7 @@ Gunakan [insomnia](https://insomnia.rest/), [postman](https://www.postman.com/),
 - POST: http://localhost:3000/v1/user
   - body:
     - name: string
-    - gender: string enum('m','l')
+    - gender: string enum('m','f')
 ```
 
 ## License
