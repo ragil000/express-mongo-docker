@@ -1,0 +1,2 @@
+MONGODB_URL=mongodb://127.0.0.1:27017/express_docker_compose?maxPoolSize=30&minPoolSize=10
+PORT=3000

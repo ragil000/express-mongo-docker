@@ -1,0 +1,34 @@
+version: '3.7'
+
+services:
+  mongo:
+    container_name: mongo
+    image: mongo:4.0.28-xenial
+    ports:
+      - 27017:27017
+    networks:
+      - test_app1
+    volumes:
+      - mongo_backup:/data/db
+  api:
+    container_name: app1
+    image: app1
+    ports:
+      - 3000:3000
+    networks:
+      - test_app1
+    depends_on:
+      - mongo
+    environment:
+      - MONGODB_URL=mongodb://mongo:27017/express_docker_compose?maxPoolSize=30&minPoolSize=10
+      - PORT=3000
+    volumes:
+      - .:/usr/app/
+
+networks:
+  test_app1:
+    name: test_app1
+
+volumes:
+  mongo_backup:
+    name: mongo_backup
