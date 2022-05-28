@@ -19,5 +19,15 @@ docker-compose up
 
 Gunakan [insomnia](https://insomnia.rest/), [postman](https://www.postman.com/), [RapidAPI](https://rapidapi.com/products/api-testing/) atau API Tester lainnya untuk melakukan testing pada project ini.
 
+### endpoints
+```bash
+- GET: http://localhost:3000/v1/user
+
+- POST: http://localhost:3000/v1/user
+  - body:
+    - name: string
+    - gender: string enum('m','l')
+```
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
