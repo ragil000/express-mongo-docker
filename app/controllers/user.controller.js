@@ -1,7 +1,7 @@
 const Model = require('../models/user.model');
 const sanitize = require('mongo-sanitize');
 
-exports.get = async (request, response) => {
+const getData = async (request, response) => {
     const query = sanitize(request['query']);
     const page = parseInt(query['page']) || 1;
     const limit = parseInt(query['limit']) || 10;
@@ -66,7 +66,7 @@ exports.get = async (request, response) => {
     }
 };
 
-exports.post = async (request, response) => {
+const postData = async (request, response) => {
     const body = sanitize(request['body']);
 
     try {
@@ -96,7 +96,7 @@ exports.post = async (request, response) => {
     }
 };
 
-exports.put = async (request, response) => {
+const putData = async (request, response) => {
     const query = sanitize(request['query']);
     const body = sanitize(request['body']);
     const _id = query['_id'];
@@ -142,7 +142,7 @@ exports.put = async (request, response) => {
     }
 };
 
-exports.delete = async (request, response) => {
+const deleteData = async (request, response) => {
     const query = sanitize(request['query']);
     const _id = query['_id'];
     const hard = query['hard'];
@@ -177,3 +177,5 @@ exports.delete = async (request, response) => {
         });
     }
 };
+
+module.exports = { getData, postData, putData, deleteData };

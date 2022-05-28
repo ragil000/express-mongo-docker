@@ -3,7 +3,8 @@ const env = require('dotenv');
 env.config();
 
 const mongodbURL = process.env.MONGODB_URL;
-function connect() {
+
+const connect = () => {
     return new Promise((resolve, reject) => {
         mongoose.connect(`${mongodbURL}`,
         {
@@ -18,7 +19,7 @@ function connect() {
     });
 }
 
-function close() {
+const close = () => {
     return mongoose.disconnect();
 }
 
